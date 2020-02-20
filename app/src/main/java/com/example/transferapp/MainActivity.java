@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.transferapp.fragment.AboutFragment;
+import com.example.transferapp.fragment.AppFragment;
 import com.example.transferapp.fragment.TransferFragment;
 import com.example.transferapp.utils.LogUtils;
 import com.example.transferapp.utils.VersionUtil;
@@ -152,8 +153,8 @@ public class MainActivity extends AppCompatActivity {
                     AboutFragment tab2= AboutFragment.newInstance("AboutFragment","AboutFragment");
                     return tab2;
                 case 2:
-                    TransferFragment tab3= TransferFragment.newInstance("333","ccc");
-                    return tab3;
+                    AppFragment fragment = new AppFragment();
+                    return fragment;
             }
             TransferFragment tab1= TransferFragment.newInstance("TransferFragment","TransferFragment");
             return tab1;
