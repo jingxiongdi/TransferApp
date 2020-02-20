@@ -1,13 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/socketBackground"
+    android:orientation="vertical"
     tools:context=".fragment.AboutFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="位置信息" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/location_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="locationBest"
+        />
+    <Button
+        android:id="@+id/location_network_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="locationNetwork"
+        />
+    <Button
+        android:id="@+id/location_gps_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="locationGPS"
+        />
+
+</LinearLayout>
