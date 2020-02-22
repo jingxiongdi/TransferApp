@@ -16,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.transferapp.fragment.AboutFragment;
 import com.example.transferapp.fragment.AppFragment;
+import com.example.transferapp.fragment.SoundRecoderFragment;
 import com.example.transferapp.fragment.TransferFragment;
 import com.example.transferapp.utils.LogUtils;
 import com.example.transferapp.utils.VersionUtil;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     || !(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
             || !(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED)
                     || !(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+                    || !(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED)
                     || !(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)){
                 //没有权限，申请权限
                 String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -63,12 +65,13 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode == RC_PERMISSION && grantResults.length == 5
+        if (requestCode == RC_PERMISSION && grantResults.length == 6
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED
                 && grantResults[1] == PackageManager.PERMISSION_GRANTED
                 && grantResults[2] == PackageManager.PERMISSION_GRANTED
                 && grantResults[3] == PackageManager.PERMISSION_GRANTED
                 && grantResults[4] == PackageManager.PERMISSION_GRANTED
+                && grantResults[5] == PackageManager.PERMISSION_GRANTED
         ) {
             LogUtils.d( "权限申请成功");
         }else {
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setViews() {
         viewPager = findViewById(R.id.viewpager);
-        myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager(),3);
+        myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager(),4);
         viewPager.setAdapter(myPagerAdapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -121,6 +124,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.item_bottom_3:
                         viewPager.setCurrentItem(2);
                         break;
+                    case R.id.item_bottom_4:
+                        viewPager.setCurrentItem(3);
+                        break;
                 }
                 return true;
             }
@@ -155,6 +161,9 @@ public class MainActivity extends AppCompatActivity {
                 case 2:
                     AppFragment fragment = new AppFragment();
                     return fragment;
+                case 3:
+                    SoundRecoderFragment soundRecoderFragment =  new SoundRecoderFragment();
+                    return soundRecoderFragment;
             }
             TransferFragment tab1= TransferFragment.newInstance("TransferFragment","TransferFragment");
             return tab1;

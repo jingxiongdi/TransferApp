@@ -5,19 +5,25 @@
         android:id="@+id/item_bottom_1"
         android:enabled="true"
         android:icon="@mipmap/ic_launcher_round"
-        android:title="选项一"
+        android:title="1"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/item_bottom_2"
         android:enabled="true"
         android:icon="@mipmap/ic_launcher_round"
-        android:title="选项二"
+        android:title="2"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/item_bottom_3"
         android:enabled="true"
         android:icon="@mipmap/ic_launcher_round"
-        android:title="选项三"
+        android:title="3"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_bottom_4"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="4"
         app:showAsAction="ifRoom" />
 
 </menu>

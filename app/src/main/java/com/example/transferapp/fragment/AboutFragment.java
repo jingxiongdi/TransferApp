@@ -84,7 +84,6 @@ public class AboutFragment extends Fragment {
         locationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CrashReport.testJavaCrash();
                 LogUtils.d("getLocation=======");
                 Location location = LocationUtils.getBestLocation(getActivity(),null);
                 String msg = "location 纬度 "+location.getLatitude()+" 经度 "+location.getLongitude()+" 海拔 "+location.getAltitude();
