@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.transferapp.fragment.AboutFragment;
 import com.example.transferapp.fragment.AppFragment;
 import com.example.transferapp.fragment.SoundRecoderFragment;
+import com.example.transferapp.fragment.StepFragment;
 import com.example.transferapp.fragment.TransferFragment;
 import com.example.transferapp.utils.LogUtils;
 import com.example.transferapp.utils.VersionUtil;
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setViews() {
         viewPager = findViewById(R.id.viewpager);
-        myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager(),4);
+        myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager(),5);
         viewPager.setAdapter(myPagerAdapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -127,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.item_bottom_4:
                         viewPager.setCurrentItem(3);
                         break;
+                    case R.id.item_bottom_5:
+                        viewPager.setCurrentItem(4);
+                        break;
                 }
                 return true;
             }
@@ -164,6 +168,9 @@ public class MainActivity extends AppCompatActivity {
                 case 3:
                     SoundRecoderFragment soundRecoderFragment =  new SoundRecoderFragment();
                     return soundRecoderFragment;
+                case 4:
+                    StepFragment stepFragment =  new StepFragment();
+                    return stepFragment;
             }
             TransferFragment tab1= TransferFragment.newInstance("TransferFragment","TransferFragment");
             return tab1;
